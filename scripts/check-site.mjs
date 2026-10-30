@@ -21,7 +21,7 @@ const runtimeErrors = [];
 page.on('pageerror', error => runtimeErrors.push(error.message));
 
 for (const lang of ['en', 'es']) {
-  for (const suffix of ['', '/cv']) {
+  for (const suffix of ['', '/cv', '/articles', '/articles/diseno-de-sistemas']) {
     const route = `/${lang}${suffix}`;
     await check(`${route}: renders with correct document language`, async () => {
       const response = await page.goto(`${origin}${route}`, { waitUntil: 'networkidle' });
@@ -51,7 +51,7 @@ for (const lang of ['en', 'es']) {
 
 await page.setViewportSize({ width: 1440, height: 1000 });
 await page.goto(`${origin}/en`, { waitUntil: 'networkidle' });
-for (const anchor of ['about', 'work', 'journey', 'beyond']) {
+for (const anchor of ['about', 'work', 'journey', 'legacy', 'beyond']) {
   await check(`Desktop navigation: #${anchor}`, async () => {
     await page.locator(`.main-nav a[href="/en#${anchor}"]`).click();
     await page.waitForTimeout(700);
@@ -80,6 +80,31 @@ await check('Language switch preserves CV route', async () => {
   await page.locator('.language-switch a[lang="es"]').click();
   await page.waitForURL('**/es/cv');
   assert.equal(new URL(page.url()).pathname, '/es/cv');
+});
+await check('Legacy article section links to six local featured articles', async () => {
+  await page.goto(`${origin}/en#legacy`, { waitUntil: 'networkidle' });
+  const cards = page.locator('#legacy .legacy-card');
+  assert.equal(await cards.count(), 6);
+  const links = await cards.evaluateAll(items => items.map(item => item.getAttribute('href')));
+  assert.ok(links.every(href => href?.startsWith('/en/articles/')));
+  assert.match(await page.locator('#legacy').innerText(), /45 ARTICLES/);
+});
+await check('Complete archive exposes all 45 migrated articles', async () => {
+  await page.goto(`${origin}/es/articles`, { waitUntil: 'networkidle' });
+  assert.equal(await page.locator('.legacy-archive-list .legacy-card').count(), 45);
+  assert.equal(await page.locator('.archive-year').count(), 4);
+  assert.ok(!(await page.content()).includes('arturo-jimenez.es'));
+});
+await check('Legacy article content and local images render without the old domain', async () => {
+  await page.goto(`${origin}/en/articles/nuevas-ias-de-generacion-de-imagenes-preparando-el-terreno`, { waitUntil: 'networkidle' });
+  assert.equal(await page.locator('.legacy-article-body').getAttribute('lang'), 'es');
+  assert.match(await page.locator('.article-meta').innerText(), /preserved in Spanish/i);
+  const images = page.locator('.legacy-article-body img');
+  assert.ok(await images.count() >= 1);
+  await images.first().scrollIntoViewIfNeeded();
+  await page.waitForFunction(() => { const image = document.querySelector('.legacy-article-body img'); return image?.complete && image.naturalWidth > 0; });
+  assert.ok((await images.evaluateAll(items => items.map(image => image.getAttribute('src')))).every(src => src?.startsWith('/images/legacy/')));
+  assert.ok(!(await page.content()).includes('arturo-jimenez.es'));
 });
 await check('Virtual Twin opens with an accessible English interface', async () => {
   await page.goto(`${origin}/en`, { waitUntil: 'networkidle' });

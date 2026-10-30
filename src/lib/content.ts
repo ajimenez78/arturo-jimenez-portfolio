@@ -19,7 +19,7 @@ export type Experience = {
 };
 
 export type SiteContent = {
-  nav: { about: string; work: string; journey: string; beyond: string; contact: string; cv: string };
+  nav: { about: string; work: string; journey: string; legacy: string; beyond: string; contact: string; cv: string };
   hero: { eyebrow: string; titleLine1: string; titleLine2: string; description: string; primaryAction: string; secondaryAction: string; location: string; caption: string };
   about: { eyebrow: string; title: string; paragraphs: string[] };
   stats: { value: string; label: string }[];
@@ -37,7 +37,7 @@ export type SiteContent = {
 
 export const content: Record<Locale, SiteContent> = {
   en: {
-    nav: { about: "About", work: "Work", journey: "Journey", beyond: "Beyond code", contact: "Let’s talk", cv: "View CV" },
+    nav: { about: "About", work: "Work", journey: "Journey", legacy: "Articles", beyond: "Beyond code", contact: "Let’s talk", cv: "View CV" },
     hero: {
       eyebrow: "SOFTWARE ARCHITECT · ENGINEER · EXPLORER",
       titleLine1: "Making complexity",
@@ -152,7 +152,7 @@ export const content: Record<Locale, SiteContent> = {
     labels: { readMore: "Discover more", viewRole: "View experience", closeRole: "Close experience", viewAllProjects: "More on GitHub", originalCv: "CV · PDF · English", footer: "Built with intention. Fueled by curiosity.", menu: "Open menu", close: "Close menu", skip: "Skip to content", language: "Switch to Spanish" },
   },
   es: {
-    nav: { about: "Sobre mí", work: "Proyectos", journey: "Trayectoria", beyond: "Más allá del código", contact: "Hablemos", cv: "Ver CV" },
+    nav: { about: "Sobre mí", work: "Proyectos", journey: "Trayectoria", legacy: "Artículos", beyond: "Más allá del código", contact: "Hablemos", cv: "Ver CV" },
     hero: {
       eyebrow: "ARQUITECTO DE SOFTWARE · INGENIERO · EXPLORADOR",
       titleLine1: "Convertir lo complejo",

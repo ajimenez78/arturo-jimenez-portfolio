@@ -11,7 +11,7 @@ export function Header({ lang }: { lang: Locale }) {
   const pathname = usePathname();
   const toggle = useRef<HTMLButtonElement>(null);
   const c = content[lang];
-  const links = [['about', c.nav.about], ['work', c.nav.work], ['journey', c.nav.journey], ['beyond', c.nav.beyond]];
+  const links = [['about', c.nav.about], ['work', c.nav.work], ['journey', c.nav.journey], ['legacy', c.nav.legacy], ['beyond', c.nav.beyond]];
 
   useEffect(() => {
     if (!open) return;
