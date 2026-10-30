@@ -1,6 +1,6 @@
 # Arturo Jiménez — personal website
 
-A bilingual Next.js portfolio with an ivory, charcoal, and vermilion visual identity. It includes an AI Digital Twin that answers questions about Arturo's career using OpenAI's Responses API and the `gpt-4o-mini` model.
+A bilingual Next.js portfolio with an ivory, charcoal, and vermilion visual identity. It includes an AI Digital Twin that answers questions about Arturo's career using OpenAI's Responses API and the `gpt-6-luna` model.
 
 ## Run locally
 

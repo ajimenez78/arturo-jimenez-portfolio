@@ -169,7 +169,7 @@ export function DigitalTwinChat({ lang }: { lang: Locale }) {
             <textarea id="digital-twin-input" ref={inputRef} value={input} onChange={event => setInput(event.target.value)} onKeyDown={onInputKeyDown} placeholder={c.placeholder} maxLength={1500} rows={1} disabled={pending}/>
             <button type="submit" disabled={pending || !input.trim()} aria-label={c.send}><Send size={17}/></button>
           </form>
-          <p className="twin-disclosure">{c.disclosure}<span>OpenAI · GPT-4o mini</span></p>
+          <p className="twin-disclosure">{c.disclosure}<span>OpenAI · GPT-6 Luna</span></p>
         </section>
       )}
 

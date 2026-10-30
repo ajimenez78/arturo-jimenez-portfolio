@@ -91,6 +91,7 @@ await check('Digital Twin opens with an accessible English interface', async () 
   assert.equal(await panel.getAttribute('role'), 'dialog');
   assert.match(await panel.locator('h2').innerText(), /Digital Twin/i);
   assert.equal(await panel.locator('.twin-suggestions button').count(), 3);
+  assert.match(await panel.locator('.twin-disclosure').innerText(), /GPT-6 Luna/);
   assert.match(await panel.locator('textarea').getAttribute('placeholder'), /career/i);
   const results = await new AxeBuilder({ page }).include('#digital-twin-panel').withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   assert.deepEqual(results.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) })), []);

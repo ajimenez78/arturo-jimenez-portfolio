@@ -78,7 +78,7 @@ export async function POST(request: Request) {
   try {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const response = await openai.responses.create({
-      model: 'gpt-4o-mini',
+      model: 'gpt-6-luna',
       instructions: digitalTwinInstructions(locale),
       input: body.messages,
       max_output_tokens: 400,
