@@ -37,7 +37,7 @@ export type SiteContent = {
 
 export const content: Record<Locale, SiteContent> = {
   en: {
-    nav: { about: "About", work: "Work", journey: "Journey", legacy: "Articles", beyond: "Beyond code", contact: "Let’s talk", cv: "View CV" },
+    nav: { about: "About", work: "Work", journey: "Journey", legacy: "Legacy articles", beyond: "Beyond code", contact: "Let’s talk", cv: "View CV" },
     hero: {
       eyebrow: "SOFTWARE ARCHITECT · ENGINEER · EXPLORER",
       titleLine1: "Making complexity",
@@ -152,7 +152,7 @@ export const content: Record<Locale, SiteContent> = {
     labels: { readMore: "Discover more", viewRole: "View experience", closeRole: "Close experience", viewAllProjects: "More on GitHub", originalCv: "CV · PDF · English", footer: "Built with intention. Fueled by curiosity.", menu: "Open menu", close: "Close menu", skip: "Skip to content", language: "Switch to Spanish" },
   },
   es: {
-    nav: { about: "Sobre mí", work: "Proyectos", journey: "Trayectoria", legacy: "Artículos", beyond: "Más allá del código", contact: "Hablemos", cv: "Ver CV" },
+    nav: { about: "Sobre mí", work: "Proyectos", journey: "Trayectoria", legacy: "Artículos antiguos", beyond: "Más allá del código", contact: "Hablemos", cv: "Ver CV" },
     hero: {
       eyebrow: "ARQUITECTO DE SOFTWARE · INGENIERO · EXPLORADOR",
       titleLine1: "Convertir lo complejo",

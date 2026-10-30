@@ -2,7 +2,7 @@ import type { Locale } from '@/lib/content';
 
 export const legacyUi = {
   en: {
-    nav: 'Articles',
+    nav: 'Legacy articles',
     eyebrow: '05 / LEGACY ARTICLES',
     title: 'Ideas with a longer half-life.',
     intro: 'A living archive of 45 essays on software architecture, artificial intelligence, engineering, learning, and the systems around them.',
@@ -28,7 +28,7 @@ export const legacyUi = {
     },
   },
   es: {
-    nav: 'Artículos',
+    nav: 'Artículos antiguos',
     eyebrow: '05 / ARTÍCULOS LEGACY',
     title: 'Ideas que siguen resonando.',
     intro: 'Un archivo vivo con 45 artículos sobre arquitectura de software, inteligencia artificial, ingeniería, aprendizaje y los sistemas que los conectan.',
