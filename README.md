@@ -23,6 +23,10 @@ npm run build
 npm start
 ```
 
+## AWS Amplify Hosting
+
+The tracked `amplify.yml` makes `OPENAI_API_KEY` available to the deployed Next.js server runtime. Add the variable in the Amplify Console for the branch being deployed, then trigger a new deployment. Keep the name exactly `OPENAI_API_KEY`; never add the `NEXT_PUBLIC_` prefix.
+
 ## Content
 
 - `src/lib/content.ts`: English and Spanish text, career history, project links, skills, and contact information.
