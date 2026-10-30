@@ -1,6 +1,6 @@
 # Arturo Jiménez — personal website
 
-A bilingual Next.js portfolio with an ivory, charcoal, and vermilion visual identity. It includes an AI Digital Twin that answers questions about Arturo's career using OpenAI's Responses API and the `gpt-6-luna` model.
+A bilingual Next.js portfolio with an ivory, charcoal, and vermilion visual identity. It includes an AI Virtual Twin that answers questions about Arturo's career using OpenAI's Responses API and the `gpt-6-luna` model.
 
 ## Run locally
 
@@ -28,7 +28,7 @@ npm start
 - `src/lib/content.ts`: English and Spanish text, career history, project links, skills, and contact information.
 - `src/app/[lang]/page.tsx`: portfolio homepage.
 - `src/app/[lang]/cv/page.tsx`: complete, accessible, printable online CV.
-- `src/app/api/digital-twin/route.ts`: validated, rate-limited server endpoint for the AI Digital Twin.
+- `src/app/api/digital-twin/route.ts`: validated, rate-limited server endpoint for the AI Virtual Twin.
 - `src/components/digital-twin-chat.tsx`: bilingual chat interface.
 - `src/lib/digital-twin.ts`: server-only career context and grounding instructions.
 - `src/app/globals.css`: responsive design, motion preferences, and A4 print styles.

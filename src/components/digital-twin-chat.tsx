@@ -11,12 +11,12 @@ type Message = {
 
 const copy = {
   en: {
-    trigger: 'Ask my Digital Twin',
-    title: 'Arturo’s Digital Twin',
+    trigger: 'Ask my Virtual Twin',
+    title: 'Arturo’s Virtual Twin',
     subtitle: 'Career questions, answered by AI',
-    close: 'Close Digital Twin',
+    close: 'Close Virtual Twin',
     reset: 'Start a new conversation',
-    greeting: 'Hello — I’m Arturo’s AI Digital Twin. Ask me about his career, architecture work, leadership, or experience with AI.',
+    greeting: 'Hello — I’m Arturo’s AI Virtual Twin. Ask me about his career, architecture work, leadership, or experience with AI.',
     placeholder: 'Ask about Arturo’s career…',
     send: 'Send message',
     thinking: 'Thinking',
@@ -26,15 +26,15 @@ const copy = {
       'How does he work with AI?',
       'Tell me about his leadership experience.',
     ],
-    networkError: 'I could not connect to the Digital Twin. Please try again.',
+    networkError: 'I could not connect to the Virtual Twin. Please try again.',
   },
   es: {
-    trigger: 'Pregunta a mi Digital Twin',
-    title: 'Digital Twin de Arturo',
+    trigger: 'Pregunta a mi Gemelo Virtual',
+    title: 'Gemelo Virtual de Arturo',
     subtitle: 'Preguntas profesionales, respondidas por IA',
-    close: 'Cerrar Digital Twin',
+    close: 'Cerrar Gemelo Virtual',
     reset: 'Iniciar una conversación nueva',
-    greeting: 'Hola, soy el Digital Twin de Arturo basado en IA. Pregúntame sobre su trayectoria, arquitectura, liderazgo o experiencia con IA.',
+    greeting: 'Hola, soy el Gemelo Virtual de Arturo basado en IA. Pregúntame sobre su trayectoria, arquitectura, liderazgo o experiencia con IA.',
     placeholder: 'Pregunta sobre la carrera de Arturo…',
     send: 'Enviar mensaje',
     thinking: 'Pensando',
@@ -44,7 +44,7 @@ const copy = {
       '¿Cómo trabaja con inteligencia artificial?',
       'Háblame de su experiencia liderando equipos.',
     ],
-    networkError: 'No he podido conectar con el Digital Twin. Inténtalo de nuevo.',
+    networkError: 'No he podido conectar con el Gemelo Virtual. Inténtalo de nuevo.',
   },
 } as const;
 

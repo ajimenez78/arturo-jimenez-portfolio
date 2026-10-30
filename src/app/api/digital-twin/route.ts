@@ -63,12 +63,12 @@ export async function POST(request: Request) {
     ? {
         invalid: 'No he podido leer ese mensaje.',
         limited: 'Hay muchas conversaciones en este momento. Inténtalo de nuevo en unos minutos.',
-        unavailable: 'El Digital Twin no está disponible en este momento. Inténtalo de nuevo más tarde.',
+        unavailable: 'El Gemelo Virtual no está disponible en este momento. Inténtalo de nuevo más tarde.',
       }
     : {
         invalid: 'I could not read that message.',
         limited: 'There are many conversations right now. Please try again in a few minutes.',
-        unavailable: 'The Digital Twin is unavailable right now. Please try again later.',
+        unavailable: 'The Virtual Twin is unavailable right now. Please try again later.',
       };
 
   if (!validMessages(body.messages)) return json({ error: errorCopy.invalid }, 400);

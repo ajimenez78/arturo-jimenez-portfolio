@@ -81,7 +81,7 @@ await check('Language switch preserves CV route', async () => {
   await page.waitForURL('**/es/cv');
   assert.equal(new URL(page.url()).pathname, '/es/cv');
 });
-await check('Digital Twin opens with an accessible English interface', async () => {
+await check('Virtual Twin opens with an accessible English interface', async () => {
   await page.goto(`${origin}/en`, { waitUntil: 'networkidle' });
   const trigger = page.locator('.twin-trigger');
   await trigger.click();
@@ -89,7 +89,7 @@ await check('Digital Twin opens with an accessible English interface', async () 
   await panel.waitFor();
   await page.waitForTimeout(300);
   assert.equal(await panel.getAttribute('role'), 'dialog');
-  assert.match(await panel.locator('h2').innerText(), /Digital Twin/i);
+  assert.match(await panel.locator('h2').innerText(), /Virtual Twin/i);
   assert.equal(await panel.locator('.twin-suggestions button').count(), 3);
   assert.match(await panel.locator('.twin-disclosure').innerText(), /GPT-6 Luna/);
   assert.match(await panel.locator('textarea').getAttribute('placeholder'), /career/i);
@@ -99,13 +99,14 @@ await check('Digital Twin opens with an accessible English interface', async () 
   assert.ok(await panel.isHidden());
   assert.ok(await trigger.evaluate(el => el === document.activeElement));
 });
-await check('Digital Twin interface is localized in Spanish', async () => {
+await check('Virtual Twin interface is localized as Gemelo Virtual in Spanish', async () => {
   await page.goto(`${origin}/es`, { waitUntil: 'networkidle' });
   await page.locator('.twin-trigger').click();
   const panel = page.locator('#digital-twin-panel');
   assert.match(await panel.locator('textarea').getAttribute('placeholder'), /carrera/i);
   assert.match(await panel.locator('.twin-disclosure').innerText(), /generadas por IA/i);
-  await panel.getByRole('button', { name: 'Cerrar Digital Twin' }).click();
+  assert.match(await panel.locator('h2').innerText(), /Gemelo Virtual/i);
+  await panel.getByRole('button', { name: 'Cerrar Gemelo Virtual' }).click();
   assert.ok(await panel.isHidden());
 });
 await page.setViewportSize({ width: 390, height: 844 });
