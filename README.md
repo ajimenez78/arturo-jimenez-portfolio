@@ -1,15 +1,18 @@
 # Arturo Jiménez — personal website
 
-A bilingual Next.js portfolio with an ivory, charcoal, and vermilion visual identity. Everything runs locally; no accounts, API keys, database, or external runtime services are required.
+A bilingual Next.js portfolio with an ivory, charcoal, and vermilion visual identity. It includes an AI Digital Twin that answers questions about Arturo's career using OpenAI's Responses API and the `gpt-4o-mini` model.
 
 ## Run locally
 
-Requires Node.js 20.9 or newer and npm.
+Requires Node.js 22 or newer, npm, and an OpenAI API key.
 
 ```sh
 npm install
+cp .env.example .env
 npm run dev
 ```
+
+Set `OPENAI_API_KEY` in `.env` before starting the app. The key is read only by the server-side route and is never sent to the browser.
 
 Open http://localhost:3000. English is at `/en`, Spanish at `/es`. The language switch preserves the current page and section.
 
@@ -25,6 +28,9 @@ npm start
 - `src/lib/content.ts`: English and Spanish text, career history, project links, skills, and contact information.
 - `src/app/[lang]/page.tsx`: portfolio homepage.
 - `src/app/[lang]/cv/page.tsx`: complete, accessible, printable online CV.
+- `src/app/api/digital-twin/route.ts`: validated, rate-limited server endpoint for the AI Digital Twin.
+- `src/components/digital-twin-chat.tsx`: bilingual chat interface.
+- `src/lib/digital-twin.ts`: server-only career context and grounding instructions.
 - `src/app/globals.css`: responsive design, motion preferences, and A4 print styles.
 - `public/documents/Arturo-Jimenez-CV.pdf`: English CV generated from the online version.
 - `public/documents/Arturo-Jimenez-CV-ES.pdf`: Spanish CV generated from the online version.

@@ -81,6 +81,32 @@ await check('Language switch preserves CV route', async () => {
   await page.waitForURL('**/es/cv');
   assert.equal(new URL(page.url()).pathname, '/es/cv');
 });
+await check('Digital Twin opens with an accessible English interface', async () => {
+  await page.goto(`${origin}/en`, { waitUntil: 'networkidle' });
+  const trigger = page.locator('.twin-trigger');
+  await trigger.click();
+  const panel = page.locator('#digital-twin-panel');
+  await panel.waitFor();
+  await page.waitForTimeout(300);
+  assert.equal(await panel.getAttribute('role'), 'dialog');
+  assert.match(await panel.locator('h2').innerText(), /Digital Twin/i);
+  assert.equal(await panel.locator('.twin-suggestions button').count(), 3);
+  assert.match(await panel.locator('textarea').getAttribute('placeholder'), /career/i);
+  const results = await new AxeBuilder({ page }).include('#digital-twin-panel').withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+  assert.deepEqual(results.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) })), []);
+  await page.keyboard.press('Escape');
+  assert.ok(await panel.isHidden());
+  assert.ok(await trigger.evaluate(el => el === document.activeElement));
+});
+await check('Digital Twin interface is localized in Spanish', async () => {
+  await page.goto(`${origin}/es`, { waitUntil: 'networkidle' });
+  await page.locator('.twin-trigger').click();
+  const panel = page.locator('#digital-twin-panel');
+  assert.match(await panel.locator('textarea').getAttribute('placeholder'), /carrera/i);
+  assert.match(await panel.locator('.twin-disclosure').innerText(), /generadas por IA/i);
+  await panel.getByRole('button', { name: 'Cerrar Digital Twin' }).click();
+  assert.ok(await panel.isHidden());
+});
 await page.setViewportSize({ width: 390, height: 844 });
 for (const lang of ['en', 'es']) {
   await page.goto(`${origin}/${lang}`, { waitUntil: 'networkidle' });

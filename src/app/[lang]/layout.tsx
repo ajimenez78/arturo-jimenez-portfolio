@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { content, type Locale } from '@/lib/content';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { DigitalTwinChat } from '@/components/digital-twin-chat';
 import '../globals.css';
 
 const manrope = localFont({
@@ -30,5 +31,5 @@ export default async function RootLayout({ children, params }: { children: React
   const { lang } = await params;
   if (lang !== 'en' && lang !== 'es') notFound();
   const locale = lang as Locale;
-  return <html lang={locale} className={`${manrope.variable} ${mono.variable}`}><body id="top"><a className="skip-link" href="#main">{content[locale].labels.skip}</a><Header lang={locale}/>{children}<Footer lang={locale}/></body></html>;
+  return <html lang={locale} className={`${manrope.variable} ${mono.variable}`}><body id="top"><a className="skip-link" href="#main">{content[locale].labels.skip}</a><Header lang={locale}/>{children}<Footer lang={locale}/><DigitalTwinChat lang={locale}/></body></html>;
 }
