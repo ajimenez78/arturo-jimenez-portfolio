@@ -128,6 +128,7 @@ export const content: Record<Locale, SiteContent> = {
       },
     ],
     projects: [
+      { title: "Carreeer Asssitant", category: "CAREER SUPPORT & AI", description: "An AI-powered career assistant helping with job search, outreach, and professional planning in a focused, practical workflow.", tags: ["AI", "Career", "Productivity"], href: "https://github.com/ajimenez78/carreeer_asssitant", linkLabel: "Explore repository" },
       { title: "Oracle", category: "AI & PERSONAL KNOWLEDGE", description: "A personal oracle built around your own second brain. Exploring the connection between knowledge and AI.", tags: ["Python", "AI", "Knowledge systems"], href: "https://github.com/ajimenez78/oracle", linkLabel: "Explore repository" },
       { title: "Stoa", category: "GAME DESIGN & PRACTICAL PHILOSOPHY", description: "An interactive RPG that turns Stoic philosophy into daily practice, with guided reflection, mini-games, and a journey through the four cardinal virtues.", tags: ["Godot", "GDScript", "Game design"], href: "https://github.com/ajimenez78/stoa", linkLabel: "Explore repository" },
       { title: "Dance Tutor", category: "MOVEMENT & LEARNING", description: "A bilingual Salsa and Bachata tutor with short video lessons, guided rhythm practice, and progress tracking. Making a little daily practice feel natural.", tags: ["React", "TypeScript", "Learning"], href: "https://github.com/ajimenez78/dance_tutor", linkLabel: "Explore repository" },
@@ -243,6 +244,7 @@ export const content: Record<Locale, SiteContent> = {
       },
     ],
     projects: [
+      { title: "Carreeer Asssitant", category: "APOYO PROFESIONAL E IA", description: "Un asistente de carrera impulsado por IA para ayudar con la búsqueda de empleo, la preparación y la planificación profesional en un flujo práctico y enfocado.", tags: ["IA", "Carrera", "Productividad"], href: "https://github.com/ajimenez78/carreeer_asssitant", linkLabel: "Explorar repositorio" },
       { title: "Oracle", category: "IA Y CONOCIMIENTO PERSONAL", description: "Un oráculo personal construido alrededor de tu propio segundo cerebro. Explorando la conexión entre conocimiento e IA.", tags: ["Python", "IA", "Sistemas de conocimiento"], href: "https://github.com/ajimenez78/oracle", linkLabel: "Explorar repositorio" },
       { title: "Stoa", category: "DISEÑO DE JUEGOS Y FILOSOFÍA PRÁCTICA", description: "Un RPG interactivo que convierte la filosofía estoica en práctica diaria, con reflexión guiada, minijuegos y un recorrido por las cuatro virtudes cardinales.", tags: ["Godot", "GDScript", "Diseño de juegos"], href: "https://github.com/ajimenez78/stoa", linkLabel: "Explorar repositorio" },
       { title: "Dance Tutor", category: "MOVIMIENTO Y APRENDIZAJE", description: "Un tutor bilingüe de salsa y bachata con lecciones breves en vídeo, práctica de ritmo guiada y seguimiento del progreso. Diseñado para practicar un poco cada día.", tags: ["React", "TypeScript", "Aprendizaje"], href: "https://github.com/ajimenez78/dance_tutor", linkLabel: "Explorar repositorio" },
